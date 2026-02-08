@@ -8,6 +8,7 @@ Simple apps. Ship fast.
 - **Foraging with Friends** - Discover wild edibles
 - **DueReview** - Nothing slips past.
 - **pDoom** - Daily AI risk + hope tracker
+- **EmojiTap** - Tap, Build, Conquer
 
 ## Legal
 
@@ -15,6 +16,7 @@ Simple apps. Ship fast.
 - [Foraging with Friends Privacy Policy](privacy/foraging-with-friends)
 - [DueReview Privacy Policy](/privacy/duereview)
 - [pDoom Privacy Policy](privacy/pdoom)
+- [EmojiTap Privacy Policy](/privacy/emojitap)
 
 ## Contact
 
