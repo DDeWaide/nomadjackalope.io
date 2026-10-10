@@ -7,7 +7,7 @@ Simple apps. Ship fast.
 - **Uh-Oh Log** - Pet incident tracker
 - **Foraging with Friends** - Discover wild edibles
 - **DueReview** - Nothing slips past.
-- **pDoom** - Daily AI risk + hope tracker
+- **[pDoom](/pdoom/)** - Daily AI risk + hope tracker
 - **EmojiTap** - Tap, Build, Conquer
 
 ## Legal
