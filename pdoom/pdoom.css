@@ -194,7 +194,31 @@ footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: w
 
 /* Six months in thirty seconds */
 .flow-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 12px var(--gutter) 0; }
-.flow { display: block; width: min(100%, calc(88vh * 9 / 16)); height: auto; aspect-ratio: 9 / 16; background: var(--night); }
+.flow-stage { position: relative; width: min(100%, calc(88vh * 9 / 16)); container-type: inline-size; }
+.flow { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; background: var(--night); }
 .flow-status { margin: 0; color: var(--dim); font-style: italic; }
 .flow-controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.flow-btn:disabled { opacity: 0.6; cursor: default; }
+/* sound chip, in the empty top-right corner of the animation (sized with it, so it never reaches
+   the subtitle): "Tap for sound" until they choose, then just a speaker */
+.flow-sound {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.45em 0.75em 0.4em 0.55em;
+  font: 500 clamp(12px, 3.5vw, 16px)/1 var(--pixel);
+  font-size: clamp(12px, 4.4cqw, 16px);
+  color: var(--ink);
+  background: rgba(8, 10, 22, 0.8);
+  border: 1px solid rgba(236, 235, 242, 0.45);
+  box-shadow: 3px 3px 0 var(--doom);
+  cursor: pointer;
+}
+.flow-sound[hidden] { display: none; }
+.flow-sound svg { width: 1.3em; height: 1.3em; flex: none; }
+.flow-sound .waves, .flow-sound.on .cross { display: none; }
+.flow-sound.on .waves { display: inline; }
+.flow-sound.compact { padding: 0.45em; box-shadow: none; border-color: var(--rule); }
+.flow-sound.compact .label { display: none; }

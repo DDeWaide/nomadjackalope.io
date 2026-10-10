@@ -75,10 +75,18 @@
     };
   }
 
-  function makeRack(ctx, dest, t0) {   // t0: context time the piece starts at
+  // t0: context time of the piece's start; from: seconds into the piece playback begins at (live only)
+  function makeRack(ctx, dest, t0, from) {
     var master = ctx.createGain();
-    master.gain.setValueAtTime(0.55, t0);                       // the build: quieter at the start,
-    master.gain.linearRampToValueAtTime(0.9, t0 + 15);          // full by fifteen seconds
+    if (from > 0) {                                             // joining mid-piece: a short fade in to
+      var now = ctx.currentTime, level = 0.55 + 0.35 * Math.min(1, from / 15);   // wherever the build is
+      master.gain.setValueAtTime(0.0001, now);
+      master.gain.linearRampToValueAtTime(level, now + 0.35);
+      if (from < 14) master.gain.linearRampToValueAtTime(0.9, t0 + 15);
+    } else {
+      master.gain.setValueAtTime(0.55, t0);                     // the build: quieter at the start,
+      master.gain.linearRampToValueAtTime(0.9, t0 + 15);        // full by fifteen seconds
+    }
     var comp = ctx.createDynamicsCompressor();
     comp.threshold.value = -14; comp.knee.value = 10; comp.ratio.value = 3;
     comp.attack.value = 0.004; comp.release.value = 0.2;
@@ -227,11 +235,26 @@
     return btoa(bin);
   }
 
-  // Live: schedules a little ahead of the clock; returns { start, stop } with start in ctx time.
-  function playLive(flow, ctx) {
-    var start = ctx.currentTime + 0.15, timer = null;
-    var rack = makeRack(ctx, ctx.destination, start);
+  // Live: schedules a little ahead of the clock. from: seconds into the piece to begin at (0 = the
+  // top), so sound can join an animation that's already running. Returns { start, stop }, start
+  // being the context time of the piece's t = 0, so the page can run the picture off the audio clock.
+  function playLive(flow, ctx, from) {
+    from = Math.max(0, from || 0);
+    var start = from > 0 ? ctx.currentTime - from : ctx.currentTime + 0.15, timer = null;
+    var rack = makeRack(ctx, ctx.destination, start, from);
     var events = buildEvents(flow), i = 0;
+    if (from > 0) {
+      var at = from + 0.03, cut = null;
+      for (; i < events.length && events[i].t < at; i++) {     // skip what's already gone by, but
+        var e = events[i];
+        if (e.v === "cut") cut = e;                             // keep the organ's current brightness
+        else if (e.v === "pad" && e.t + e.dur > at + 0.3) {     // and bring in the chord still sounding
+          var left = e.t + e.dur - at;
+          play(rack, { v: "pad", t: at, notes: e.notes, attack: Math.min(0.5, left * 0.4), dur: left }, start);
+        }
+      }
+      if (cut) rack.organ.filter.frequency.setValueAtTime(cutoffFor(cut.doom), ctx.currentTime);
+    }
     function pump() {
       var horizon = ctx.currentTime - start + 0.3;
       while (i < events.length && events[i].t <= horizon) { play(rack, events[i], start); i++; }

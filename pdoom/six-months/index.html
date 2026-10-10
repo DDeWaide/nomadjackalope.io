@@ -33,10 +33,15 @@
 </header>
 <main id="main">
 <div class="flow-wrap">
-  <canvas id="flow" class="flow" width="1080" height="1920" role="img" aria-label="Every daily doom reading from April 10, 2026 to October 10, 2026, with each day&#x27;s cards, ending on today&#x27;s: 56.1% doom, 43.9% dawn."></canvas>
+  <div class="flow-stage">
+    <canvas id="flow" class="flow" width="1080" height="1920" role="img" aria-label="Every daily doom reading from April 10, 2026 to October 10, 2026, with each day&#x27;s cards, ending on today&#x27;s: 56.1% doom, 43.9% dawn."></canvas>
+    <button class="flow-sound" id="sound" type="button" aria-pressed="false" aria-label="Turn sound on" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="currentColor"/><path class="waves" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="cross" d="M16 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="label">Tap for sound</span>
+    </button>
+  </div>
   <p class="flow-status" id="flow-status" aria-live="polite">Loading six months of cards</p>
   <div class="flow-controls">
-    <button class="flow-btn" id="sound" type="button" hidden>Play with sound</button>
     <button class="flow-btn" id="replay" type="button" hidden>Replay</button>
   </div>
 </div>
@@ -60,59 +65,117 @@
     fadeIn: !capture
   });
   var status = document.getElementById("flow-status"), replay = document.getElementById("replay");
-  var sound = document.getElementById("sound");
+  var chip = document.getElementById("sound"), canvas = document.getElementById("flow");
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var raf = null, live = null, ac = null;
   var fonts = ['700 84px "Pixelify Sans Variable"', '500 40px "Pixelify Sans Variable"',
                '600 46px "Newsreader Variable"', 'italic 400 36px "Newsreader Variable"'];
-  // one loop for both modes; with sound, the audio clock drives the picture so they never drift
-  function run(clock) {
+
+  // ---- picture: one loop; while the score plays, the audio clock drives it so they never drift
+  var raf = null, playing = false, clock = function () { return 0; };
+  function silentFrom(t) { var p0 = performance.now(); clock = function () { return t + (performance.now() - p0) / 1000; }; }
+  function loop() {
     cancelAnimationFrame(raf);
-    replay.hidden = true;
+    playing = true; replay.hidden = true;
     function tick() {
+      watchdog();
       var t = clock();
       flow.renderAt(t);
       if (t < flow.duration) raf = requestAnimationFrame(tick);
-      else {
-        replay.textContent = "Replay"; replay.hidden = false;
-        sound.disabled = false; sound.textContent = "Play with sound";
-      }
+      else { playing = false; replay.textContent = "Replay"; replay.hidden = false; }
     }
     raf = requestAnimationFrame(tick);
   }
-  function play() {
-    if (live) { live.stop(); live = null; }
-    var t0 = performance.now();
-    run(function () { return (performance.now() - t0) / 1000; });
+  function play(t) {   // (re)start the animation at t seconds, with the score if sound is on
+    if (soundOn && ac.state !== "running") { soundOn = false; soundUp(false); }   // suspended meanwhile: retry
+    if (soundOn) audible(t); else { hush(); silentFrom(t); }
+    loop();
   }
-  function playWithSound() {
-    if (live) live.stop();
-    var AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) { play(); return; }
+
+  // ---- sound. Browsers only allow sound after a tap or click, so it tries anyway (some allow it,
+  // e.g. Chrome on a site you've played sound on before); otherwise it plays silently and the first
+  // tap anywhere brings the score in where the picture is, in time with it.
+  var AC = window.AudioContext || window.webkitAudioContext;
+  var canSound = !capture && !!(AC && window.pdoomScore);
+  var JOIN_BY = flow.timeline.arrive - 0.5;   // after the landing there's nothing left to join
+  var ac = null, live = null, soundOn = false, userMuted = false, token = 0, stalled = 0;
+  function hush() { if (live) { live.stop(); live = null; } }
+  function audible(t) {
+    hush();
+    var lat = (ac && ac.outputLatency) || 0;   // so a Bluetooth delay doesn't put the picture ahead
+    var mine = live = window.pdoomScore.playLive(flow, ac, t > 0 ? t + lat : 0);
+    clock = function () { return Math.max(0, ac.currentTime - mine.start - lat); };
+    stalled = 0;
+  }
+  function join() {   // the audio is running: sound on, joining the picture where it is
+    if (live || userMuted) return;
+    soundOn = true; paint();
+    var t = clock();
+    if (playing && t < JOIN_BY) audible(t);
+  }
+  function watchdog() {   // the audio stopped under us (a phone call, the lock screen): carry on silently
+    if (!live) return;
+    if (ac.state === "running") { stalled = 0; return; }
+    if (++stalled < 20) return;
+    var t = clock(); hush(); silentFrom(t); soundOn = false; paint();
+  }
+  function unlock() {   // has to run inside a tap or click
     try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (err) {}
-    ac = ac || new AC();
-    ac.resume();
-    var mine = live = window.pdoomScore.playLive(flow, ac);
-    sound.disabled = true; sound.textContent = "Playing";
-    run(function () { return Math.max(0, ac.currentTime - mine.start); });
-    setTimeout(function () {   // the browser never started the audio: play the picture on its own
-      if (live === mine && ac.currentTime < mine.start) {
-        sound.disabled = false; sound.textContent = "Play with sound"; play();
-      }
-    }, 1500);
+    try { var s = ac.createBufferSource(); s.buffer = ac.createBuffer(1, 1, 22050); s.connect(ac.destination); s.start(0); } catch (err) {}
+    var p = ac.resume && ac.resume();
+    return p && p.then ? p : Promise.resolve();
   }
-  replay.addEventListener("click", play);
-  sound.addEventListener("click", playWithSound);
+  function soundUp(restart) {   // after a tap: sound on, joining in place (or from the top, if asked and it's over)
+    if (!canSound) return;
+    userMuted = false;
+    var mine = ++token;
+    unlock().then(function () {
+      if (mine !== token || userMuted || ac.state !== "running") return;
+      join();
+      if (!live && restart && !(playing && clock() < JOIN_BY)) play(0);
+    }, function () {});
+  }
+  function soundDown() {
+    token++; userMuted = true; soundOn = false;
+    if (live) { var t = clock(); hush(); silentFrom(t); }
+    paint();
+  }
+  function paint() {   // the chip: a label until they've chosen, then just the speaker
+    if (!canSound) return;
+    chip.hidden = false;
+    chip.classList.toggle("on", soundOn);
+    chip.classList.toggle("compact", soundOn || userMuted);
+    chip.setAttribute("aria-pressed", soundOn ? "true" : "false");
+    chip.setAttribute("aria-label", soundOn ? "Turn sound off" : "Turn sound on");
+  }
+  if (canSound) {
+    ac = new AC();
+    soundOn = ac.state === "running";
+    ac.addEventListener("statechange", function () { if (ac.state === "running") join(); });
+    if (window.matchMedia && !window.matchMedia("(hover: none)").matches) chip.querySelector(".label").textContent = "Turn sound on";
+    chip.addEventListener("click", function () { if (soundOn) soundDown(); else soundUp(true); });
+    canvas.addEventListener("click", function () { if (!soundOn) soundUp(true); });
+    var anyTap = function (ev) {   // taps on the chip or the animation are theirs to handle
+      if (soundOn || userMuted || chip.contains(ev.target) || ev.target === canvas) return;
+      soundUp(false);
+    };
+    document.addEventListener("click", anyTap, true);
+    document.addEventListener("touchend", anyTap, { capture: true, passive: true });
+  }
+  replay.addEventListener("click", function () { play(0); });
+
   Promise.all(fonts.map(function (f) { return document.fonts.load(f); })).then(function () {
     if (capture) { flow.preloadAll().then(function () { flow.renderAt(0); window.flowReady = true; }); return; }
     flow.preload(24).then(function () {
       status.hidden = true;
-      sound.hidden = !window.pdoomScore;
+      paint();
       if (still) { flow.renderAt(flow.duration); replay.textContent = "Play"; replay.hidden = false; }
-      else play();
+      else play(0);
     });
     flow.preloadAll();
   });
+  window.flowState = function () {
+    return { t: clock(), playing: playing, soundOn: soundOn, userMuted: userMuted, live: !!live, audio: ac ? ac.state : "none" };
+  };
 })();
 </script>
 <footer>
