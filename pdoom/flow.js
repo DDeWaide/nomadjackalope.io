@@ -51,9 +51,6 @@
     var plotW = L.plotRight - L.plotLeft, plotH = L.chartBottom - L.chartTop;
     var xs = days.map(function (_, i) { return L.plotLeft + (N > 1 ? i / (N - 1) : 1) * plotW; });
     var ys = days.map(function (d) { return L.chartBottom - (d.doom - lo) / (hi - lo) * plotH; });
-    var methodIdx = -1;
-    days.forEach(function (d, i) { if (methodIdx < 0 && data.methodChange && d.d >= data.methodChange) methodIdx = i; });
-    if (methodIdx === 0) methodIdx = -1;
 
     // ---- images: one per day per side, plus today's full-size cards ----------------------
     var imgs = {};
@@ -147,20 +144,6 @@
           text(m, xs[i], L.chartBottom + 54, "500 32px " + PIXEL, DIM, "center");
         }
       });
-      // where the scoring method changed (readings run higher after it)
-      if (methodIdx > 0) {
-        var shown = clamp01((h - methodIdx + 1.5) / 6);
-        if (shown > 0) {
-          var mx = xs[methodIdx] - (xs[methodIdx] - xs[methodIdx - 1]) / 2;
-          ctx.save();
-          ctx.globalAlpha = alpha * shown;
-          ctx.setLineDash([8, 10]); ctx.strokeStyle = RULE_STRONG; ctx.lineWidth = 2;
-          ctx.beginPath(); ctx.moveTo(mx, L.chartTop - 6); ctx.lineTo(mx, L.chartBottom); ctx.stroke();
-          ctx.restore();
-          // low in the plot, where the line never goes, so it can't collide with the headlines above
-          text("New scoring method", mx - 14, L.chartBottom - 22, "italic 400 30px " + NEWS, DIM, "right", alpha * shown);
-        }
-      }
       if (h < 0) { ctx.restore(); return; }
       var head = pointAt(h), last = head[2];
       // soft fill under the line, in today's-so-far doom color
