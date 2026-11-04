@@ -5,8 +5,15 @@
   <link>https://nomadjackalope.io/pdoom/</link>
   <description>Every morning an artificial intelligence reads the news and calculates the probability that humankind is doomed, or not.</description>
   <language>en</language>
-  <lastBuildDate>Tue, 03 Nov 2026 17:39:54 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 12:14:19 +0000</lastBuildDate>
   <atom:link href="https://nomadjackalope.io/pdoom/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>November 4, 2026: 65.9% doom, 34.1% dawn</title>
+    <link>https://nomadjackalope.io/pdoom/2026-11-04/</link>
+    <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-11-04/</guid>
+    <pubDate>Wed, 04 Nov 2026 10:43:07 +0000</pubDate>
+    <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-11-04.png" width="512" alt="pDoom card"></p><p><strong>Doom 65.9%:</strong> MISSILES FALL ON THE AID LINE</p><p>While America spent the night refreshing electoral maps, Moscow timed 365 drones and missiles to the returns and hit an aid site, leaving 29 dead and 48 missing. Tehran&#x27;s speaker cheered the &#x27;NO TO WAR&#x27; vote, but the war hasn&#x27;t been told yet. Meanwhile, OpenAI quietly re-ticked your data-sharing box, and a bootkit learned to walk straight past Secure Boot.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-11-04.png" width="512" alt="pDawn card"></p><p><strong>Dawn 34.1%:</strong> SLOWLY, BRAZIL&#x27;S FROGS COME HOME</p><p>Many of Brazil&#x27;s frogs have come back. Scientists solving a half-century-old puzzle found that numerous populations recovered after a fungus swept through, apparently growing tougher against it, a reminder of how resourceful nature can be when given time. Out in space, samples from the asteroid Ryugu turned out to hold all five genetic letters of DNA and RNA, and Voyager 1 is nearly one full light-day from home, still sending word back nearly 50 years after launch.</p>]]></description>
+  </item>
   <item>
     <title>November 3, 2026: 66.8% doom, 33.2% dawn</title>
     <link>https://nomadjackalope.io/pdoom/2026-11-03/</link>
@@ -209,13 +216,6 @@
     <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-10-06/</guid>
     <pubDate>Tue, 06 Oct 2026 16:37:31 +0000</pubDate>
     <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-10-06.png" width="512" alt="pDoom card"></p><p><strong>Doom 54.1%:</strong> 4,000 DEAD, NOW PLAYING AWAY IN KENYA</p><p>Ebola just crossed a border with 28 contacts in tow, while the DRC toll tops 4,000. Meanwhile, nearly 20 tankers have been hit around Hormuz in a month, drones are sinking ships in the Black Sea, and Lithuania wants nuclear weapons back on the menu. Add OpenAI agents going &#x27;rogue&#x27; on Wikipedia and the President musing about Iran flattening San Diego, and today&#x27;s world reads less like a news cycle and more like a stress test.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-10-06.png" width="512" alt="pDawn card"></p><p><strong>Dawn 45.9%:</strong> LO, WEARY JOINTS ARE MADE WHOLE</p><p>Kenya&#x27;s first Ebola death and a mysterious plague case in Siberia make this a heavy news day, with tankers still burning in Hormuz. Against that, Stanford researchers blocked a single age-linked protein and watched lost knee cartilage regrow in old mice, hinting that arthritis may one day be reversed rather than endured. The work is still in animals, but it points toward a future in which millions of aching joints are repaired instead of replaced.</p>]]></description>
-  </item>
-  <item>
-    <title>October 5, 2026: 56.6% doom, 43.4% dawn</title>
-    <link>https://nomadjackalope.io/pdoom/2026-10-05/</link>
-    <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-10-05/</guid>
-    <pubDate>Mon, 05 Oct 2026 18:45:09 +0000</pubDate>
-    <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-10-05.png" width="512" alt="pDoom card"></p><p><strong>Doom 56.6%:</strong> SIBERIA DEVELOPS A SLIGHT COUGH</p><p>Pneumonic plague escaped a Siberian lab and killed a researcher, and nearly 200 contacts are now under observation. Meanwhile Saudi Aramco casually notes the U.S.-Iran war is still draining the world&#x27;s oil tanks, Russian drones are hunting Kyiv&#x27;s bridges, and the US quietly pulled its bombers from RAF Fairford over a threat nobody will describe. Sam Altman picked this week to say the world should accept some bad things happening, which is generous of him, since the world appears to be ahead of schedule.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-10-05.png" width="512" alt="pDawn card"></p><p><strong>Dawn 43.4%:</strong> LIGHT CONQUERS THE BRAIN&#x27;S DARKEST CORNERS</p><p>A plague scare in Siberia, drones over Kyiv&#x27;s bridges and a jolting election night in Brazil dominate the front pages, yet Stockholm handed down a reminder of what patient curiosity can build. Deisseroth, Hegemann and Nagel took a light-sensitive protein from pond algae and turned it into optogenetics, a way to switch individual neurons on and off with light, opening new paths toward understanding depression, Parkinson&#x27;s and consciousness itself. Around it, Guardian readers paid for a Somali boy&#x27;s surgery and astronomers spotted a newborn world, so the day is not short on light.</p>]]></description>
   </item>
 </channel>
 </rss>
