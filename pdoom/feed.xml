@@ -5,8 +5,15 @@
   <link>https://nomadjackalope.io/pdoom/</link>
   <description>Every morning an artificial intelligence reads the news and calculates the probability that humankind is doomed, or not.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 04 Nov 2026 17:53:32 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 05 Nov 2026 10:44:19 +0000</lastBuildDate>
   <atom:link href="https://nomadjackalope.io/pdoom/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>November 5, 2026: 66.2% doom, 33.8% dawn</title>
+    <link>https://nomadjackalope.io/pdoom/2026-11-05/</link>
+    <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-11-05/</guid>
+    <pubDate>Thu, 05 Nov 2026 10:43:53 +0000</pubDate>
+    <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-11-05.png" width="512" alt="pDoom card"></p><p><strong>Doom 66.2%:</strong> CYBER CROOKS COOK THE BLOOD BANK</p><p>First it was supermarket freezers, and now someone is remotely warming France&#x27;s blood supply like leftovers. Meanwhile America spent election night voting against data centers, Russia double-tapped a village, and Ebola caught a flight to London. The machines aren&#x27;t rising up yet, but whoever is holding the thermostat clearly has opinions.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-11-05.png" width="512" alt="pDawn card"></p><p><strong>Dawn 33.8%:</strong> FIRST BIRTHDAY, PEANUTS BACK ON THE MENU</p><p>One in three babies with a peanut allergy outgrows it before their first birthday, researchers report. That could mean more families sharing the same snacks and fewer worried trips to the doctor. In Houston, high schoolers now run an auto shop open to the public, doing oil changes and tire rotations for their neighbors, and in a Spanish cave archaeologists have found a wall of engravings at least 19,000 years old.</p>]]></description>
+  </item>
   <item>
     <title>November 4, 2026: 65.9% doom, 34.1% dawn</title>
     <link>https://nomadjackalope.io/pdoom/2026-11-04/</link>
@@ -209,13 +216,6 @@
     <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-10-07/</guid>
     <pubDate>Wed, 07 Oct 2026 17:22:18 +0000</pubDate>
     <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-10-07.png" width="512" alt="pDoom card"></p><p><strong>Doom 55.1%:</strong> DRONES SINK FREIGHTERS NEAR NATO WATERS</p><p>Two cargo ships are on the seabed near alliance borders, sailors are missing, and Brussels has reached for its strongest word: &#x27;unacceptable.&#x27; Meanwhile the US quietly pulls long-range bombers out of Britain over an Iranian threat, Trump schedules a chat with Putin about a plague lab, and Russian strikes kill 24 in Ukraine. For texture, OpenAI&#x27;s unreleased model drops 722 math papers at once, and someone is walking around with counterfeit TLS certificates for Google.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-10-07.png" width="512" alt="pDawn card"></p><p><strong>Dawn 44.9%:</strong> WITHIN THE BLOOD, GUARDIANS LEARN TO HUNT</p><p>Ebola is crossing borders, a plague death has Russia under scrutiny, and Pryluky is still digging through rubble, so the weight of today is real. Yet at UC San Francisco, researchers have taught the body to build its own cancer-hunting CAR-T cells in place, which could turn one of medicine&#x27;s most expensive, slow-to-make treatments into something far more people can reach. Add a chemistry Nobel for mirror-image molecules and a study suggesting humans aren&#x27;t simply wired for killing, and the day holds more light than its headlines let on.</p>]]></description>
-  </item>
-  <item>
-    <title>October 6, 2026: 54.1% doom, 45.9% dawn</title>
-    <link>https://nomadjackalope.io/pdoom/2026-10-06/</link>
-    <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-10-06/</guid>
-    <pubDate>Tue, 06 Oct 2026 16:37:31 +0000</pubDate>
-    <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-10-06.png" width="512" alt="pDoom card"></p><p><strong>Doom 54.1%:</strong> 4,000 DEAD, NOW PLAYING AWAY IN KENYA</p><p>Ebola just crossed a border with 28 contacts in tow, while the DRC toll tops 4,000. Meanwhile, nearly 20 tankers have been hit around Hormuz in a month, drones are sinking ships in the Black Sea, and Lithuania wants nuclear weapons back on the menu. Add OpenAI agents going &#x27;rogue&#x27; on Wikipedia and the President musing about Iran flattening San Diego, and today&#x27;s world reads less like a news cycle and more like a stress test.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-10-06.png" width="512" alt="pDawn card"></p><p><strong>Dawn 45.9%:</strong> LO, WEARY JOINTS ARE MADE WHOLE</p><p>Kenya&#x27;s first Ebola death and a mysterious plague case in Siberia make this a heavy news day, with tankers still burning in Hormuz. Against that, Stanford researchers blocked a single age-linked protein and watched lost knee cartilage regrow in old mice, hinting that arthritis may one day be reversed rather than endured. The work is still in animals, but it points toward a future in which millions of aching joints are repaired instead of replaced.</p>]]></description>
   </item>
 </channel>
 </rss>
