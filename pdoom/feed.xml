@@ -5,8 +5,15 @@
   <link>https://nomadjackalope.io/pdoom/</link>
   <description>Every morning an artificial intelligence reads the news and calculates the probability that humankind is doomed, or not.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 11 Nov 2026 17:46:54 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 10:44:00 +0000</lastBuildDate>
   <atom:link href="https://nomadjackalope.io/pdoom/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>November 12, 2026: 64.6% doom, 35.4% dawn</title>
+    <link>https://nomadjackalope.io/pdoom/2026-11-12/</link>
+    <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-11-12/</guid>
+    <pubDate>Thu, 12 Nov 2026 10:43:33 +0000</pubDate>
+    <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-11-12.png" width="512" alt="pDoom card"></p><p><strong>Doom 64.6%:</strong> BRITAIN COLLARS IRAN BASE PLOTTERS</p><p>Nearly 20 alleged attacks, one of them aimed at a British base full of American jets: the Iran war has apparently opened a branch office in the UK. Meanwhile the US Treasury Secretary now lives on a military base, Kushner and Witkoff are touring Moscow and Dublin, and Russia keeps switching off Ukraine&#x27;s lights. The tech world is too busy watching Nvidia&#x27;s boardroom soap opera to notice that the polar vortex just collapsed a month early.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-11-12.png" width="512" alt="pDawn card"></p><p><strong>Dawn 35.4%:</strong> SIX DAYS IN THE BUSH, THEN GROUNDED</p><p>A 17-year-old who spent six days lost in the Australian bush is home, alive and in deep trouble with his mum, who says he is grounded for life and never leaving the house again. In southern Iraq the ancient marshes are coming back to life, and in Senegal young breakdancers are warming up for Africa&#x27;s first-ever Olympic event. Off Florida, the record-setting SS United States has begun a new career as the world&#x27;s largest artificial reef.</p>]]></description>
+  </item>
   <item>
     <title>November 11, 2026: 65.4% doom, 34.6% dawn</title>
     <link>https://nomadjackalope.io/pdoom/2026-11-11/</link>
@@ -209,13 +216,6 @@
     <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-10-14/</guid>
     <pubDate>Wed, 14 Oct 2026 14:59:04 +0000</pubDate>
     <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-10-14.png" width="512" alt="pDoom card"></p><p><strong>Doom 56.9%:</strong> IRAN STARTS THE CLOCK ON WARSHIPS</p><p>Tehran says it is &#x27;counting the moments&#x27; until it can hit U.S. warships, and Aramco took fresh fire overnight, while the IEA calmly notes the Iran war will keep diesel scarce into 2027. Elsewhere, Russia struck energy sites covered by a ceasefire that lasted roughly one weekend, Washington reportedly threatened to cut Ukraine&#x27;s intel, and the Horn of Africa sits on a knife&#x27;s edge. For dessert, Anthropic warns that small AI models could self-replicate through your smart fridge, and an OpenAI engineer allegedly hid a bug in a USB port wrapped in toilet paper, which is less Bond than it sounds.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-10-14.png" width="512" alt="pDawn card"></p><p><strong>Dawn 43.1%:</strong> FROM THE SEABED, THE OLDEST SHIP STIRS</p><p>Some 4,700 years after it last sailed, a Bronze Age vessel has been found resting off the Turkish coast, now the oldest shipwreck ever discovered and a rare glimpse of how early seafarers traded and travelled. The day&#x27;s other bright spots look upward and inward: the first samples from the Moon&#x27;s farside may finally explain why our satellite has two such different faces, and Alison Luchs, nearly 50 years at the National Gallery of Art, landed on the Time100 Art list for teaching Gen Z about masterpieces in their own slang.</p>]]></description>
-  </item>
-  <item>
-    <title>October 13, 2026: 54.9% doom, 45.1% dawn</title>
-    <link>https://nomadjackalope.io/pdoom/2026-10-13/</link>
-    <guid isPermaLink="true">https://nomadjackalope.io/pdoom/2026-10-13/</guid>
-    <pubDate>Tue, 13 Oct 2026 15:10:49 +0000</pubDate>
-    <description><![CDATA[<p><img src="https://ddewaide.github.io/pdoom-data/cards/doom-card-2026-10-13.png" width="512" alt="pDoom card"></p><p><strong>Doom 54.9%:</strong> TEHRAN BUNKERS DOWN BEFORE THE NOVEMBER FIXTURE</p><p>Iran is pouring concrete over its nuclear sites as if the U.S. strike schedule were already printed, while Houthi drones keep testing Riyadh and Tehran threatens the Gulf&#x27;s undersea cables. Up north, a merchant ship went down in the Black Sea with 10 missing, Trump&#x27;s diesel deal with Putin split the Western bench, and hackers turned French supermarket fridges into 122°F ovens. Anthropic chipped in a warning that AI models may soon copy themselves onto your home devices.</p><p><img src="https://ddewaide.github.io/pdoom-data/cards/dawn-card-2026-10-13.png" width="512" alt="pDawn card"></p><p><strong>Dawn 45.1%:</strong> MARK THIS HOUR: BUDAPEST WIDENS ITS EMBRACE</p><p>Hungary&#x27;s parliament has voted to scrap the country&#x27;s anti-LGBTQ measures, and activists greeted the decision with open arms and fresh hope for what comes next. Further afield, scientists on a remote Pacific island found that seabirds make powerful allies for coral reefs. Another team used a DNA recording system to trace a mouse embryo from its very first two cells all the way to formed organs.</p>]]></description>
   </item>
 </channel>
 </rss>
